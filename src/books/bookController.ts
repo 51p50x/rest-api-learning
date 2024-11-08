@@ -9,10 +9,7 @@ interface Books {
 @Route('Books')
 @Tags('Books')
 export class BookController extends Controller {
-  @Get()
-  public async getBooks(
-  ): Promise<Books[]> {
-    const misLibros: Books[] = [
+  misLibros: Books[] = [
       {
         id: 123,
         name: 'John Doe adventures',
@@ -29,7 +26,12 @@ export class BookController extends Controller {
         author: 'John Doe'
       },
     ];
-
-    return misLibros;
+  
+  @Get()
+  public async getBooks(
+  ): Promise<Books[]> {
+    return this.misLibros;
   }
+
+  //GetLibro(i) remove this comment when its done
 }
